@@ -12,4 +12,8 @@
     <ProjectReference Include="..\YogaStudio.Domain\YogaStudio.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Common\Mapping\" />
+  </ItemGroup>
+
 </Project>

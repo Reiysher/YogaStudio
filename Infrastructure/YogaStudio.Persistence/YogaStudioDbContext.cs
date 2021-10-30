@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using YogaStudio.Application.Common;
+using YogaStudio.Application.Interfaces;
 using YogaStudio.Domain;
 using YogaStudio.Persistence.EntityTypeConfigurations;
 

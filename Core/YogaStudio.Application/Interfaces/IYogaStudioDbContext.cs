@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using YogaStudio.Domain;
 
-namespace YogaStudio.Application.Common
+namespace YogaStudio.Application.Interfaces
 {
     // TODO: Or UoW?
     public interface IYogaStudioDbContext
