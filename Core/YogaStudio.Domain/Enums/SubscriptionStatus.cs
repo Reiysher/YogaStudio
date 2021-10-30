@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace YogaStudio.Domain.Enums
 {
-    public enum YogaClassType
+    public enum SubscriptionStatus
     {
-        Normal = 0,
-        Morning = 1,
-        Online = 2
+        Expired = 0,
+        Active = 1
     }
 }
