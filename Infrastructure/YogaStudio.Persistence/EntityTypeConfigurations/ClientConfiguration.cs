@@ -4,17 +4,17 @@ using YogaStudio.Domain;
 
 namespace YogaStudio.Persistence.EntityTypeConfigurations
 {
-    public class YogaClassConfiguration : IEntityTypeConfiguration<YogaClass>
+    public class ClientConfiguration : IEntityTypeConfiguration<Client>
     {
-        public void Configure(EntityTypeBuilder<YogaClass> builder)
+        public void Configure(EntityTypeBuilder<Client> builder)
         {
             builder.HasKey(c => c.Id);
             builder.HasIndex(c => c.Id)
                 .IsUnique()
                 .IsClustered();
-            builder.HasMany(c => c.Orders)
-                .WithOne(o => o.YogaClass)
-                .HasForeignKey(o => o.YogaClassId)
+            builder.HasMany(c => c.Subscriptions)
+                .WithOne(s => s.Client)
+                .HasForeignKey(s => s.ClientId)
                 .OnDelete(DeleteBehavior.SetNull);
         }
     }
