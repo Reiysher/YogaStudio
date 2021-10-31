@@ -19,6 +19,8 @@ namespace YogaStudio.Persistence
         {
             builder.ApplyConfiguration(new YogaClassConfiguration());
             builder.ApplyConfiguration(new SubscriptionConfiguration());
+            builder.ApplyConfiguration(new ClientConfiguration());
+            builder.ApplyConfiguration(new MentorConfiguration());
             base.OnModelCreating(builder);
         }
     }

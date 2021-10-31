@@ -8,7 +8,7 @@ namespace YogaStudio.Domain
     {
         public Guid ClientId { get; set; }
         public Client Client { get; set; }
-        public IEnumerable<Order> Orders { get; set; }
+        public IEnumerable<YogaClass> Classes { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public int NumberOfClasses { get; set; }
