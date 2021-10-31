@@ -17,7 +17,6 @@
   <ItemGroup>
     <Folder Include="Features\Subscriptions\Commands\CreateSubscription\" />
     <Folder Include="Features\Subscriptions\Queries\" />
-    <Folder Include="Features\YogaClasses\Queries\" />
   </ItemGroup>
 
 </Project>

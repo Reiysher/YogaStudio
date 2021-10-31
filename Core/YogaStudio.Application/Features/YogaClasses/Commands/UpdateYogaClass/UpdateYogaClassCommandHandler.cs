@@ -25,13 +25,11 @@ namespace YogaStudio.Application.Features.YogaClasses.Commands.UpdateYogaClass
                 .FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
 
             if (entity == null)
-            {
                 throw new NotFoundException(nameof(YogaClass), request.Id);
-            }
 
             entity.MentorId = request.MentorId;
             entity.Subscriptions = request.Subscriptions;
-            entity.StartDate = request.StartDate;
+            entity.Date = request.StartDate;
             entity.Description = request.Description;
             entity.MinClients = request.MinClients;
             entity.MaxClients = request.MaxClients;

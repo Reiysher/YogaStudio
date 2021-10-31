@@ -9,7 +9,7 @@ namespace YogaStudio.Domain
         public Guid MentorId { get; set; }
         public Mentor Mentor { get; set; }
         public IEnumerable<Subscription> Subscriptions { get; set; }
-        public DateTime StartDate { get; set; }
+        public DateTime Date { get; set; }
         public string Description { get; set; }
         public int MinClients { get; set; }
         public int MaxClients { get; set; }
