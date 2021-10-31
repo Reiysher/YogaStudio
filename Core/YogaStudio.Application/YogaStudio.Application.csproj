@@ -6,11 +6,18 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.11" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\YogaStudio.Domain\YogaStudio.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Subscriptions\Commands\CreateSubscription\" />
+    <Folder Include="Features\Subscriptions\Queries\" />
+    <Folder Include="Features\YogaClasses\Queries\" />
   </ItemGroup>
 
 </Project>
