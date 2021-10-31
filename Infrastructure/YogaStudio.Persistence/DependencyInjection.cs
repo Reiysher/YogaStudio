@@ -13,7 +13,7 @@ namespace YogaStudio.Persistence
     public static class DependencyInjection
     {
         public static IServiceCollection AddPersistence(
-            IServiceCollection services, IConfiguration configuration)
+            this IServiceCollection services, IConfiguration configuration)
         {
             var connection = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<YogaStudioDbContext>(options =>
