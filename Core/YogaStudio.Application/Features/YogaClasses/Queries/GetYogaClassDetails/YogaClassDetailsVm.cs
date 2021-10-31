@@ -16,6 +16,7 @@ namespace YogaStudio.Application.Features.YogaClasses.Queries.GetYogaClassDetail
         public Guid MentorId { get; set; }
         public IEnumerable<Subscription> Subscriptions { get; set; }
         public DateTime Date { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
         public int MinClients { get; set; }
         public int MaxClients { get; set; }
@@ -29,6 +30,7 @@ namespace YogaStudio.Application.Features.YogaClasses.Queries.GetYogaClassDetail
                 .ForMember(dst => dst.MentorId, opt => opt.MapFrom(src => src.MentorId))
                 .ForMember(dst => dst.Subscriptions, opt => opt.MapFrom(src => src.Subscriptions))
                 .ForMember(dst => dst.Date, opt => opt.MapFrom(src => src.Date))
+                .ForMember(dst => dst.Title, opt => opt.MapFrom(src => src.Title))
                 .ForMember(dst => dst.Description, opt => opt.MapFrom(src => src.Description))
                 .ForMember(dst => dst.MinClients, opt => opt.MapFrom(src => src.MinClients))
                 .ForMember(dst => dst.MaxClients, opt => opt.MapFrom(src => src.MaxClients))

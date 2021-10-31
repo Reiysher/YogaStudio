@@ -30,6 +30,7 @@ namespace YogaStudio.Application.Features.YogaClasses.Commands.UpdateYogaClass
             entity.MentorId = request.MentorId;
             entity.Subscriptions = request.Subscriptions;
             entity.Date = request.StartDate;
+            entity.Title = request.Title;
             entity.Description = request.Description;
             entity.MinClients = request.MinClients;
             entity.MaxClients = request.MaxClients;

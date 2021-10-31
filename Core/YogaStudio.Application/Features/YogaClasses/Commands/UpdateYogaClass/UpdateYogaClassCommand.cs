@@ -12,6 +12,7 @@ namespace YogaStudio.Application.Features.YogaClasses.Commands.UpdateYogaClass
         public Guid MentorId { get; set; }
         public IEnumerable<Subscription> Subscriptions { get; set; }
         public DateTime StartDate { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
         public int MinClients { get; set; }
         public int MaxClients { get; set; }

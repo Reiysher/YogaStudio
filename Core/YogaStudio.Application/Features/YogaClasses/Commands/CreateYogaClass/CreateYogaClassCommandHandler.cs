@@ -25,6 +25,7 @@ namespace YogaStudio.Application.Features.YogaClasses.Commands.CreateYogaClass
                 Id = Guid.NewGuid(),
                 MentorId = request.MentorId,
                 Date = request.StartDate,
+                Title = request.Title,
                 Description = request.Description,
                 MinClients = request.MinClients,
                 MaxClients = request.MaxClients,

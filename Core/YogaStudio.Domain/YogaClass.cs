@@ -10,6 +10,7 @@ namespace YogaStudio.Domain
         public Mentor Mentor { get; set; }
         public IEnumerable<Subscription> Subscriptions { get; set; }
         public DateTime Date { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
         public int MinClients { get; set; }
         public int MaxClients { get; set; }
