@@ -4,27 +4,16 @@ using YogaStudio.Domain.Enums;
 
 namespace YogaStudio.Domain
 {
-    public class YogaClass
+    public class YogaClass : BaseEntity<Guid>
     {
-        // class id
-        public Guid Id { get; set; }
-        // mentor(user) id
         public Guid MentorId { get; set; }
-        // list of clients(users), who signed up for class
-        public IEnumerable<Guid> SignedUpUsers { get; set; }
-        // list of clients(users) who attended the class
-        public IEnumerable<Guid> AttendedUsers { get; set; }
-        // class date
-        public DateTime Date { get; set; }
-        // class status (Active/Canceled)
-        public YogaClassStatus Status { get; set; }
-        // class type (morning, normal, online)
-        public YogaClassType Type { get; set; }
-        // class description
+        public Mentor Mentor { get; set; }
+        public IEnumerable<Order> Orders { get; set; }
+        public DateTime StartDate { get; set; }
         public string Description { get; set; }
-        // Minimum count of users
-        public int MinUsers { get; set; }
-        // Maximum count of users
-        public int MaxUsers { get; set; }
+        public int MinClients { get; set; }
+        public int MaxClients { get; set; }
+        public YogaClassType Type { get; set; }
+        public YogaClassStatus Status { get; set; }
     }
 }

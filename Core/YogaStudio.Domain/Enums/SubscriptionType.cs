@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YogaStudio.Domain.Enums
 {
-    public enum YogaClassType
+    public enum SubscriptionType
     {
         Offline = 0,
         Online = 1

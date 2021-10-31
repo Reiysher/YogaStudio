@@ -5,10 +5,12 @@ using YogaStudio.Domain;
 
 namespace YogaStudio.Application.Interfaces
 {
-    // TODO: Or UoW?
     public interface IYogaStudioDbContext
     {
         DbSet<YogaClass> Classes { get; set; }
+        DbSet<Subscription> Subscriptions { get; set; }
+        DbSet<Client> Clients { get; set; }
+        DbSet<Mentor> Mentors { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }
