@@ -35,6 +35,17 @@ namespace YogaStudio.WebApi
 
             services.AddApplication();
             services.AddPersistence(Configuration);
+
+            // TODO: configure cors later
+            services.AddCors(options => 
+            {
+                options.AddPolicy("AllowAll", policy =>
+                {
+                    policy.AllowAnyHeader();
+                    policy.AllowAnyMethod();
+                    policy.AllowAnyOrigin();
+                });
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
