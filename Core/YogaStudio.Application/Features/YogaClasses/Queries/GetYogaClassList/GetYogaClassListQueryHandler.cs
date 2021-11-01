@@ -27,8 +27,9 @@ namespace YogaStudio.Application.Features.YogaClasses.Queries.GetYogaClassList
             CancellationToken cancellationToken)
         {
             var yogaClasses = await _context.Classes
+                .Where(c => true)
                 .ProjectTo<YogaClassLookupDto>(_mapper.ConfigurationProvider)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
 
             return new YogaClassListVm { Classes = yogaClasses };
         }

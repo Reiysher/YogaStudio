@@ -1,9 +1,10 @@
 ﻿namespace YogaStudio.Persistence
 {
-    public class DbInitializer
+    public static class DbInitializer
     {
         public static void Initialize(YogaStudioDbContext context)
         {
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
         }
     }

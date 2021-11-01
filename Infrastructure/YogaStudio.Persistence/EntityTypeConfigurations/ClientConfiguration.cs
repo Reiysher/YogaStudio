@@ -8,14 +8,11 @@ namespace YogaStudio.Persistence.EntityTypeConfigurations
     {
         public void Configure(EntityTypeBuilder<Client> builder)
         {
-            builder.HasKey(c => c.Id);
-            builder.HasIndex(c => c.Id)
-                .IsUnique()
-                .IsClustered();
+            builder.HasKey(c => c.Id).IsClustered(true);
             builder.HasMany(c => c.Subscriptions)
                 .WithOne(s => s.Client)
-                .HasForeignKey(s => s.ClientId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey(s => s.ClientId);
+                //.OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

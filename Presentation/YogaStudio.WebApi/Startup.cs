@@ -11,6 +11,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using YogaStudio.Application;
 using YogaStudio.Application.Common.Mappings;
+using YogaStudio.Application.Interfaces;
 using YogaStudio.Persistence;
 
 namespace YogaStudio.WebApi
@@ -29,12 +30,15 @@ namespace YogaStudio.WebApi
             services.AddAutoMapper(config =>
             {
                 // TODO: needed some tests
+                // WebApi assembly
                 config.AddProfile(new MappingProfile(Assembly.GetExecutingAssembly()));
-                config.AddProfile(new MappingProfile(typeof(YogaStudioDbContext).Assembly));
+                // Application assembly
+                config.AddProfile(new MappingProfile(typeof(IYogaStudioDbContext).Assembly));
             });
 
             services.AddApplication();
             services.AddPersistence(Configuration);
+            services.AddControllers();
 
             // TODO: configure cors later
             services.AddCors(options => 

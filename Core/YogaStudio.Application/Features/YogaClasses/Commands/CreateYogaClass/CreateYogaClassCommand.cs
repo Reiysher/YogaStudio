@@ -7,7 +7,7 @@ namespace YogaStudio.Application.Features.YogaClasses.Commands.CreateYogaClass
     public class CreateYogaClassCommand : IRequest<Guid>
     {
         public Guid MentorId { get; set; }
-        public DateTime StartDate { get; set; }
+        public DateTime Date { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public int MinClients { get; set; }

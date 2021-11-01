@@ -8,14 +8,12 @@ namespace YogaStudio.Persistence.EntityTypeConfigurations
     {
         public void Configure(EntityTypeBuilder<Mentor> builder)
         {
-            builder.HasKey(m => m.Id);
-            builder.HasIndex(m => m.Id)
-                .IsUnique()
-                .IsClustered();
+            builder.HasKey(m => m.Id).IsClustered(true);
             builder.HasMany(m => m.Classes)
                 .WithOne(c => c.Mentor)
-                .HasForeignKey(c => c.MentorId)
-                .OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey(c => c.MentorId);
+            // TODO: set nullable fields in model
+            //    .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

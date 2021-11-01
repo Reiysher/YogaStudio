@@ -8,13 +8,10 @@ namespace YogaStudio.Persistence.EntityTypeConfigurations
     {
         public void Configure(EntityTypeBuilder<Subscription> builder)
         {
-            builder.HasKey(s => s.Id);
-            builder.HasIndex(s => s.Id)
-                .IsUnique()
-                .IsClustered();
-            //builder.HasMany(s => s.Classes)
-            //    .WithMany(c => c.Subscriptions)
-            //    .UsingEntity(e => e.ToTable("Orders"));
+            builder.HasKey(s => s.Id).IsClustered(true);
+            builder.HasMany(s => s.Classes)
+                .WithMany(c => c.Subscriptions)
+                .UsingEntity(e => e.ToTable("Orders"));
         }
     }
 }
