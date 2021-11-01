@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using YogaStudio.Domain;
 using YogaStudio.Domain.Enums;
+using MediatR;
 
-namespace YogaStudio.Domain
+namespace YogaStudio.Application.Features.YogaClasses.Commands.UpdateYogaClass
 {
-    public class YogaClass : BaseEntity<Guid>
+    public class UpdateYogaClassCommand : IRequest
     {
+        public Guid Id { get; set; }
         public Guid MentorId { get; set; }
-        public Mentor Mentor { get; set; }
         public IEnumerable<Subscription> Subscriptions { get; set; }
         public DateTime Date { get; set; }
         public string Title { get; set; }
