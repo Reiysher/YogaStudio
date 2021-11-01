@@ -56,13 +56,12 @@ namespace YogaStudio.WebApi
             }
 
             app.UseRouting();
+            app.UseHttpsRedirection();
+            app.UseCors("AllowAll");
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
     }
