@@ -6,7 +6,10 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using YogaStudio.Application.Common.Mappings;
+using YogaStudio.Persistence;
 
 namespace YogaStudio.WebApi
 {
@@ -14,6 +17,12 @@ namespace YogaStudio.WebApi
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(config =>
+            {
+                // TODO: needed some tests
+                config.AddProfile(new MappingProfile(Assembly.GetExecutingAssembly()));
+                config.AddProfile(new MappingProfile(typeof(YogaStudioDbContext).Assembly));
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
