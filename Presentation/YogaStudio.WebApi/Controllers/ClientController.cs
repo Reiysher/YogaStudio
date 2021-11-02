@@ -7,6 +7,7 @@ using YogaStudio.Application.Features.Clients.Commands.DeleteClient;
 using YogaStudio.Application.Features.Clients.Commands.UpdateClient;
 using YogaStudio.Application.Features.Clients.Queries.GetClientDetails;
 using YogaStudio.Application.Features.Clients.Queries.GetClientsList;
+using YogaStudio.WebApi.Models;
 
 namespace YogaStudio.WebApi.Controllers
 {

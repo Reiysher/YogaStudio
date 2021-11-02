@@ -21,7 +21,7 @@ namespace YogaStudio.WebApi.Models
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<CreateYogaClassDto, CreateYogaClassCommand > ()
+            profile.CreateMap<CreateYogaClassDto, CreateYogaClassCommand>()
                 .ForMember(dst => dst.MentorId, opt => opt.MapFrom(src => src.MentorId))
                 .ForMember(dst => dst.Date, opt => opt.MapFrom(src => src.Date))
                 .ForMember(dst => dst.Title, opt => opt.MapFrom(src => src.Title))
