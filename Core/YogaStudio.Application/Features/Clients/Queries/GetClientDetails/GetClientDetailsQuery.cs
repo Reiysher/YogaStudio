@@ -9,6 +9,6 @@ namespace YogaStudio.Application.Features.Clients.Queries.GetClientDetails
 {
     public class GetClientDetailsQuery : IRequest<ClientDetailsVm>
     {
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
     }
 }
