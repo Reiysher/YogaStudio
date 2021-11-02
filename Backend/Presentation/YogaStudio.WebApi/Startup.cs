@@ -13,6 +13,7 @@ using YogaStudio.Application;
 using YogaStudio.Application.Common.Mappings;
 using YogaStudio.Application.Interfaces;
 using YogaStudio.Persistence;
+using YogaStudio.WebApi.Middleware;
 
 namespace YogaStudio.WebApi
 {
@@ -59,6 +60,7 @@ namespace YogaStudio.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseYogaStudioExceptionHandler();
             app.UseRouting();
             app.UseHttpsRedirection();
             app.UseCors("AllowAll");

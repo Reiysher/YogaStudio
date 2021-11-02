@@ -19,7 +19,7 @@ namespace YogaStudio.WebApi.Middleware
             _next = next;
         }
 
-        public async Task InvokeAsynk(HttpContext context)
+        public async Task Invoke(HttpContext context)
         {
             try
             {
