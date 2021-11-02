@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Clients\Queries\GetClientsList\" />
     <Folder Include="Features\Subscriptions\Commands\CreateSubscription\" />
     <Folder Include="Features\Subscriptions\Queries\" />
   </ItemGroup>
