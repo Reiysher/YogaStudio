@@ -29,10 +29,10 @@ namespace YogaStudio.Application.Features.Clients.Queries.GetClientDetails
             CancellationToken cancellationToken)
         {
             var client = await _context.Clients
-                .FirstOrDefaultAsync(c => c.Id == request.id, cancellationToken);
+                .FirstOrDefaultAsync(c => c.Id == request.Id, cancellationToken);
 
             if (client == null)
-                throw new NotFoundException(nameof(Client), request.id);
+                throw new NotFoundException(nameof(Client), request.Id);
 
             return _mapper.Map<ClientDetailsVm>(client);
         }
