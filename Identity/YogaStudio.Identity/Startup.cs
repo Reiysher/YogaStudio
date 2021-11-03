@@ -55,9 +55,11 @@ namespace YogaStudio.Identity
             services.ConfigureApplicationCookie(config =>
             {
                 config.Cookie.Name = "YogaStudio.Identity.Cookie";
-                config.LoginPath = "Auth/Login";
-                config.LogoutPath = "Auth/logout";
+                config.LoginPath = "/Auth/Login";
+                config.LogoutPath = "/Auth/logout";
             });
+
+            services.AddControllersWithViews();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -71,10 +73,7 @@ namespace YogaStudio.Identity
             app.UseIdentityServer();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
