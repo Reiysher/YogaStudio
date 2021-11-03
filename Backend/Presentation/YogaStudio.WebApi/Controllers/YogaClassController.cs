@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace YogaStudio.WebApi.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<YogaClassListVm>> GetAll()
         {
             var query = new GetYogaClassListQuery();
@@ -32,6 +34,7 @@ namespace YogaStudio.WebApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<YogaClassDetailsVm>> Get(Guid id)
         {
             var query = new GetYogaClassDetailsQuery
@@ -43,6 +46,7 @@ namespace YogaStudio.WebApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Guid>> Create(
             [FromBody] CreateYogaClassDto createYogaClassDto)
         {
@@ -52,6 +56,7 @@ namespace YogaStudio.WebApi.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<IActionResult> Update(
             [FromBody] UpdateYogaClassDto updateYogaClassDto)
         {
@@ -61,6 +66,7 @@ namespace YogaStudio.WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteYogaClassCommand
