@@ -93,5 +93,14 @@ namespace YogaStudio.Identity.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout(string logoutId)
+        {
+            await _signInManager.SignOutAsync();
+            var logoutRequest = await _interactionService
+                .GetLogoutContextAsync(logoutId);
+            return Redirect(logoutRequest.PostLogoutRedirectUri);
+        }
     }
 }
