@@ -46,7 +46,7 @@ namespace YogaStudio.Identity.Controllers
                     return Redirect(model.ReturnUrl);
                 }
                 else
-                {
+        {
                     ModelState.AddModelError(string.Empty, "User not found");
                 }
             }
