@@ -52,5 +52,46 @@ namespace YogaStudio.Identity.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult Register(string returnUrl)
+        {
+            var model = new RegisterViewModel
+            {
+                ReturnUrl = returnUrl
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new AppUser
+                {
+                    UserName = model.Username,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    PhoneNumber = model.PhoneNumber
+                };
+
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, false);
+                    return Redirect(model.ReturnUrl);
+                }
+                else
+                {
+                    foreach(var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                }
+            }
+            return View(model);
+        }
     }
 }
