@@ -11,7 +11,7 @@ using YogaStudio.Domain;
 namespace YogaStudio.Application.Features.Mentors.Commands.CreateMentor
 {
     public class CreateMentorCommandHandler
-        : IRequestHandler<CreateMentorCommand>
+        : IRequestHandler<CreateMentorCommand, Guid>
     {
         private readonly IYogaStudioDbContext _context;
 
@@ -20,7 +20,7 @@ namespace YogaStudio.Application.Features.Mentors.Commands.CreateMentor
             _context = context;
         }
 
-        public async Task<Unit> Handle(CreateMentorCommand request, 
+        public async Task<Guid> Handle(CreateMentorCommand request, 
             CancellationToken cancellationToken)
         {
             var mentor = new Mentor
@@ -35,7 +35,7 @@ namespace YogaStudio.Application.Features.Mentors.Commands.CreateMentor
             await _context.Mentors.AddAsync(mentor, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
 
-            return Unit.Value;
+            return mentor.Id;
         }
     }
 }

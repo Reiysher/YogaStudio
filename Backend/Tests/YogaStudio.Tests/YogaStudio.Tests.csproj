@@ -26,4 +26,11 @@
     <ProjectReference Include="..\..\Infrastructure\YogaStudio.Persistence\YogaStudio.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Subscriptions\Commands\" />
+    <Folder Include="Features\Subscriptions\Queries\" />
+    <Folder Include="Features\YogaClasses\Commands\" />
+    <Folder Include="Features\YogaClasses\Queries\" />
+  </ItemGroup>
+
 </Project>

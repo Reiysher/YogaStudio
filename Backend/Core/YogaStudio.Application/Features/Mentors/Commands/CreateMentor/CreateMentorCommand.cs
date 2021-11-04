@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace YogaStudio.Application.Features.Mentors.Commands.CreateMentor
 {
-    public class CreateMentorCommand : IRequest
+    public class CreateMentorCommand : IRequest<Guid>
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
