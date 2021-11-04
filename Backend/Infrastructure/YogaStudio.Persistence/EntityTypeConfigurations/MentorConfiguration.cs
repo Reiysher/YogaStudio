@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System;
 using YogaStudio.Domain;
 
 namespace YogaStudio.Persistence.EntityTypeConfigurations
@@ -12,8 +13,14 @@ namespace YogaStudio.Persistence.EntityTypeConfigurations
             builder.HasMany(m => m.Classes)
                 .WithOne(c => c.Mentor)
                 .HasForeignKey(c => c.MentorId);
-            // TODO: set nullable fields in model
-            //    .OnDelete(DeleteBehavior.SetNull);
+            builder.HasData(
+                new Mentor
+                {
+                    Id = Guid.NewGuid(),
+                    FirstName = "",
+                    LastName = "",
+                    PhoneNumber = "",
+                });
         }
     }
 }

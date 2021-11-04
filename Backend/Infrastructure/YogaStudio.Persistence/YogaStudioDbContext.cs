@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using YogaStudio.Application.Interfaces;
 using YogaStudio.Domain;
 using YogaStudio.Persistence.EntityTypeConfigurations;

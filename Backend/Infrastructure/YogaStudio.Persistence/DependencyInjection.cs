@@ -20,10 +20,10 @@ namespace YogaStudio.Persistence
             {
                 options.UseSqlServer(connection);
             });
-            services.AddScoped<IYogaStudioDbContext>(provider =>
-                provider.GetRequiredService<YogaStudioDbContext>());
+            //services.AddScoped<IYogaStudioDbContext>(provider =>
+                //provider.GetRequiredService<YogaStudioDbContext>());
             //TODO: DbContext dependency like this?
-            //services.AddScoped<IYogaStudioDbContext, YogaStudioDbContext>();
+            services.AddScoped<IYogaStudioDbContext, YogaStudioDbContext>();
             return services;
         }
     }
