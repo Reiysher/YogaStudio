@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using YogaStudio.Application.Features.YogaClasses.Commands.CreateYogaClass;
 using YogaStudio.Application.Features.YogaClasses.Commands.DeleteYogaClass;
@@ -15,7 +13,6 @@ using YogaStudio.WebApi.Models;
 
 namespace YogaStudio.WebApi.Controllers
 {
-    //[ApiVersion("1.0")]
     [ApiVersionNeutral]
     [Produces("application/json")]
     [Route("api/{version:apiVersion}/[controller]")]
@@ -49,8 +46,21 @@ namespace YogaStudio.WebApi.Controllers
             return Ok(vm);
         }
 
+        /// <summary>
+        /// Gets the Class by id
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// Get /yogaclass/26b88929-d206-4635-8666-ce5cba670874
+        /// </remarks>
+        /// <param name="id">Class id (guid)</param>
+        /// <returns>Return YogaClassDetailsVm</returns>
+        /// <response code="200">Success</response>
+        /// <response code="401">If the user is unatorized</response>
         [HttpGet("{id}")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<YogaClassDetailsVm>> Get(Guid id)
         {
             var query = new GetYogaClassDetailsQuery
@@ -61,8 +71,30 @@ namespace YogaStudio.WebApi.Controllers
             return Ok(vm);
         }
 
+        /// <summary>
+        /// Creates the class
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// POST /yogaclass
+        /// {
+        ///     MentorId: "26b88929-d206-4635-8666-ce5cba670874",
+        ///     Date: "04.11.2021",
+        ///     Title: "Yoga",
+        ///     Description: "...",
+        ///     MinClients: "3",
+        ///     MaxClients: "12",
+        ///     Type: "Online"
+        /// }
+        /// </remarks>
+        /// <param name="createYogaClassDto">CreateYogaClassDto object</param>
+        /// <returns>Returns Id (guid)</returns>
+        /// <response code="201">Success</response>
+        /// <response code="401">If the user is unatorized</response>
         [HttpPost]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<Guid>> Create(
             [FromBody] CreateYogaClassDto createYogaClassDto)
         {
@@ -71,8 +103,30 @@ namespace YogaStudio.WebApi.Controllers
             return Ok(yogaClassId);
         }
 
+        /// <summary>
+        /// Updates the class
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// PUT /yogaclass
+        /// {
+        ///     MentorId: "26b88929-d206-4635-8666-ce5cba670874",
+        ///     Date: "04.11.2021",
+        ///     Title: "Yoga",
+        ///     Description: "...",
+        ///     MinClients: "3",
+        ///     MaxClients: "12",
+        ///     Type: "Online"
+        /// }
+        /// </remarks>
+        /// <param name="updateYogaClassDto">UpdateYogaClassDto object</param>
+        /// <returns>Returns NoContent</returns>
+        /// <response code="204">Success</response>
+        /// <response code="401">If the user is unatorized</response>
         [HttpPut]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Update(
             [FromBody] UpdateYogaClassDto updateYogaClassDto)
         {
@@ -81,8 +135,21 @@ namespace YogaStudio.WebApi.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Deletes the class by id
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// DELETE /yogaclass/26b88929-d206-4635-8666-ce5cba670874
+        /// </remarks>
+        /// <param name="id">Class id (guid)</param>
+        /// <returns>Returns NoContent</returns>
+        /// <response code="204">Success</response>
+        /// <response code="401">If the user is unatorized</response>
         [HttpDelete("{id}")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<IActionResult> Delete(Guid id)
         {
             var command = new DeleteYogaClassCommand

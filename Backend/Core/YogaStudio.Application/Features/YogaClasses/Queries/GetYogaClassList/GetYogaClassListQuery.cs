@@ -9,6 +9,6 @@ namespace YogaStudio.Application.Features.YogaClasses.Queries.GetYogaClassList
 {
     public class GetYogaClassListQuery : IRequest<YogaClassListVm>
     {
-        // TODO: some conditions?
+        // TODO: Add user id
     }
 }

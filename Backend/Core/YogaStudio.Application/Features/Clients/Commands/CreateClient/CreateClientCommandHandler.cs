@@ -11,7 +11,7 @@ using YogaStudio.Domain;
 namespace YogaStudio.Application.Features.Clients.Commands.CreateClient
 {
     public class CreateClientCommandHandler
-        : IRequestHandler<CreateClientCommand>
+        : IRequestHandler<CreateClientCommand, Guid>
     {
         private readonly IYogaStudioDbContext _context;
 
@@ -19,7 +19,8 @@ namespace YogaStudio.Application.Features.Clients.Commands.CreateClient
         {
             _context = context;
         }
-        public async Task<Unit> Handle(CreateClientCommand request,
+
+        public async Task<Guid> Handle(CreateClientCommand request,
             CancellationToken cancellationToken)
         {
             var client = new Client
@@ -34,7 +35,7 @@ namespace YogaStudio.Application.Features.Clients.Commands.CreateClient
             await _context.Clients.AddAsync(client, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
 
-            return Unit.Value;
+            return client.Id;
         }
     }
 }
