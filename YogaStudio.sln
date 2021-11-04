@@ -23,7 +23,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{FAA3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{8ABFFA88-6129-402A-AE99-DAFA91D950FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogaStudio.Identity", "Identity\YogaStudio.Identity\YogaStudio.Identity.csproj", "{77A35BB1-C7E2-4640-9F06-2B6A77303132}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogaStudio.Identity", "Identity\YogaStudio.Identity\YogaStudio.Identity.csproj", "{77A35BB1-C7E2-4640-9F06-2B6A77303132}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{8068FD44-679A-4546-A9C3-F1E64E2D755B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

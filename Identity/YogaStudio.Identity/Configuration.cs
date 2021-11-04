@@ -44,15 +44,15 @@ namespace YogaStudio.Identity
                     RequirePkce = true,
                     RedirectUris =
                     {
-                        "http://.../signin-oidc"
+                        "https://localhost:44313/signin-oidc"
                     },
                     AllowedCorsOrigins =
                     {
-                        "http://..."
+                        "https://localhost:44313/"
                     },
                     PostLogoutRedirectUris =
                     {
-                        "http://.../signout-oidc"
+                        "https://localhost:44313/signout-oidc"
                     },
                     AllowedScopes =
                     {

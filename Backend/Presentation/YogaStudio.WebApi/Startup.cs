@@ -65,7 +65,7 @@ namespace YogaStudio.WebApi
                 .AddJwtBearer("Bearer", options =>
                 {
                     // IS4 url
-                    options.Authority = "http://localhost:52279";
+                    options.Authority = "https://localhost:44378/";
                     options.Audience = "YogaStudioWebAPI";
                     options.RequireHttpsMetadata = false;
                 });
