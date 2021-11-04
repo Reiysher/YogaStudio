@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace YogaStudio.Application.Features.Subscriptions.Queries.GetSubscriptionsList
 {
-    //TODO: Use userId for query
+    //TODO: Use userId for query(after client)
     public class GetSubscriptionsListQuery : IRequest<SubscriptionsListVm>
     {
     }
