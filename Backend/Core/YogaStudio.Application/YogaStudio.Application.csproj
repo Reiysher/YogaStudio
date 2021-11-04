@@ -17,9 +17,4 @@
     <ProjectReference Include="..\YogaStudio.Domain\YogaStudio.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Subscriptions\Commands\CreateSubscription\" />
-    <Folder Include="Features\Subscriptions\Queries\" />
-  </ItemGroup>
-
 </Project>

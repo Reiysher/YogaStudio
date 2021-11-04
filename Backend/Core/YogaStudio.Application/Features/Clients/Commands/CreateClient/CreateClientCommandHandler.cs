@@ -19,6 +19,7 @@ namespace YogaStudio.Application.Features.Clients.Commands.CreateClient
         {
             _context = context;
         }
+
         public async Task<Unit> Handle(CreateClientCommand request,
             CancellationToken cancellationToken)
         {
