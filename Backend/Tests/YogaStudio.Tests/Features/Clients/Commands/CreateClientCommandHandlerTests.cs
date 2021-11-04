@@ -27,7 +27,7 @@ namespace YogaStudio.Tests.Features.Clients.Commands
             var userId = await handler.Handle(
                 new CreateClientCommand
                 {
-                    Id = YogaStudioContextFactory.UserAId,
+                    Id = Guid.NewGuid(),
                     FirstName = firstName,
                     LastName = lastName,
                     PhoneNumber = phoneNumber
