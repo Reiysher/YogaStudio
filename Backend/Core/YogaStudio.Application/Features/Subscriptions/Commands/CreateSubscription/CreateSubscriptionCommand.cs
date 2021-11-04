@@ -9,7 +9,7 @@ using YogaStudio.Domain.Enums;
 
 namespace YogaStudio.Application.Features.Subscriptions.Commands.CreateSubscription
 {
-    public class CreateSubscriptionCommand : IRequest
+    public class CreateSubscriptionCommand : IRequest<Guid>
     {
         public Guid Id { get; set; }
         public Guid ClientId { get; set; }

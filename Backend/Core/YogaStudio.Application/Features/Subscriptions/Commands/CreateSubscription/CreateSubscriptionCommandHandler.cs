@@ -11,7 +11,7 @@ using YogaStudio.Domain;
 namespace YogaStudio.Application.Features.Subscriptions.Commands.CreateSubscription
 {
     public class CreateSubscriptionCommandHandler
-        : IRequestHandler<CreateSubscriptionCommand>
+        : IRequestHandler<CreateSubscriptionCommand, Guid>
     {
         private readonly IYogaStudioDbContext _context;
 
@@ -20,7 +20,7 @@ namespace YogaStudio.Application.Features.Subscriptions.Commands.CreateSubscript
             _context = context;
         }
 
-        public async Task<Unit> Handle(CreateSubscriptionCommand request, 
+        public async Task<Guid> Handle(CreateSubscriptionCommand request, 
             CancellationToken cancellationToken)
         {
             var subscription = new Subscription
@@ -38,7 +38,7 @@ namespace YogaStudio.Application.Features.Subscriptions.Commands.CreateSubscript
             await _context.Subscriptions.AddAsync(subscription, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
 
-            return Unit.Value;
+            return subscription.Id;
         }
     }
 }
