@@ -11,13 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5E1467A1-D66D-491A-B2E6-E391085EF732}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogaStudio.Domain", "Core\YogaStudio.Domain\YogaStudio.Domain.csproj", "{3D341B0F-5CE0-46AD-B073-722926500CC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogaStudio.Domain", "Backend\Core\YogaStudio.Domain\YogaStudio.Domain.csproj", "{3D341B0F-5CE0-46AD-B073-722926500CC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogaStudio.Application", "Core\YogaStudio.Application\YogaStudio.Application.csproj", "{6F77C921-2831-424A-8767-861A027A6BDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogaStudio.Application", "Backend\Core\YogaStudio.Application\YogaStudio.Application.csproj", "{6F77C921-2831-424A-8767-861A027A6BDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogaStudio.Persistence", "Infrastructure\YogaStudio.Persistence\YogaStudio.Persistence.csproj", "{97210CB9-B952-469E-80CC-99396788A5AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogaStudio.Persistence", "Backend\Infrastructure\YogaStudio.Persistence\YogaStudio.Persistence.csproj", "{97210CB9-B952-469E-80CC-99396788A5AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogaStudio.WebApi", "Presentation\YogaStudio.WebApi\YogaStudio.WebApi.csproj", "{9FAC6619-6B02-436E-A120-7639FB8EF7AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogaStudio.WebApi", "Backend\Presentation\YogaStudio.WebApi\YogaStudio.WebApi.csproj", "{9FAC6619-6B02-436E-A120-7639FB8EF7AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{FAA3BA76-6A4D-48B6-B2EF-B03D360D3F84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{8ABFFA88-6129-402A-AE99-DAFA91D950FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogaStudio.Identity", "Identity\YogaStudio.Identity\YogaStudio.Identity.csproj", "{77A35BB1-C7E2-4640-9F06-2B6A77303132}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{8068FD44-679A-4546-A9C3-F1E64E2D755B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,15 +49,24 @@ Global
 		{9FAC6619-6B02-436E-A120-7639FB8EF7AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9FAC6619-6B02-436E-A120-7639FB8EF7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9FAC6619-6B02-436E-A120-7639FB8EF7AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77A35BB1-C7E2-4640-9F06-2B6A77303132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77A35BB1-C7E2-4640-9F06-2B6A77303132}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77A35BB1-C7E2-4640-9F06-2B6A77303132}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77A35BB1-C7E2-4640-9F06-2B6A77303132}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{7EACC422-4257-4A5E-82A2-072D50CF6614} = {FAA3BA76-6A4D-48B6-B2EF-B03D360D3F84}
+		{A4286F56-D81F-49AE-83F1-DA9030333063} = {FAA3BA76-6A4D-48B6-B2EF-B03D360D3F84}
+		{63536FAD-02F7-4BDA-B2AF-BC11E5BE3DAC} = {FAA3BA76-6A4D-48B6-B2EF-B03D360D3F84}
+		{5E1467A1-D66D-491A-B2E6-E391085EF732} = {FAA3BA76-6A4D-48B6-B2EF-B03D360D3F84}
 		{3D341B0F-5CE0-46AD-B073-722926500CC9} = {7EACC422-4257-4A5E-82A2-072D50CF6614}
 		{6F77C921-2831-424A-8767-861A027A6BDE} = {7EACC422-4257-4A5E-82A2-072D50CF6614}
 		{97210CB9-B952-469E-80CC-99396788A5AD} = {A4286F56-D81F-49AE-83F1-DA9030333063}
 		{9FAC6619-6B02-436E-A120-7639FB8EF7AA} = {63536FAD-02F7-4BDA-B2AF-BC11E5BE3DAC}
+		{77A35BB1-C7E2-4640-9F06-2B6A77303132} = {8ABFFA88-6129-402A-AE99-DAFA91D950FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {258A4F38-9A85-4F7C-BF0C-C7F1EA9A9103}
