@@ -17,9 +17,9 @@ namespace YogaStudio.Persistence.EntityTypeConfigurations
                 new Mentor
                 {
                     Id = Guid.NewGuid(),
-                    FirstName = "",
-                    LastName = "",
-                    PhoneNumber = "",
+                    FirstName = "Ivan",
+                    LastName = "Ivanov",
+                    PhoneNumber = "+79177417474",
                 });
         }
     }
