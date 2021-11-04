@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace YogaStudio.Application.Features.Clients.Commands.CreateClient
 {
-    public class CreateClientCommand : IRequest
+    public class CreateClientCommand : IRequest<Guid>
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
