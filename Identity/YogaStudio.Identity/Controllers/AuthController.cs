@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using YogaStudio.Identity.Models;
 
@@ -14,14 +17,17 @@ namespace YogaStudio.Identity.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly UserManager<AppUser> _userManager;
         private readonly IIdentityServerInteractionService _interactionService;
+        private readonly IHttpClientFactory _httpClientFactory;
 
         public AuthController(SignInManager<AppUser> signInManager, 
             UserManager<AppUser> userManager,
-            IIdentityServerInteractionService interactionService) 
+            IIdentityServerInteractionService interactionService,
+            IHttpClientFactory httpClientFactory) 
         {
             _signInManager = signInManager;
             _userManager = userManager;
             _interactionService = interactionService;
+            _httpClientFactory = httpClientFactory;
         }
 
         [HttpGet]
@@ -78,10 +84,15 @@ namespace YogaStudio.Identity.Controllers
 
                 var result = await _userManager.CreateAsync(user, model.Password);
 
+                var item = new StringContent(JsonSerializer.Serialize(user), 
+                    Encoding.UTF8, "application/json");
+                var client = _httpClientFactory.CreateClient();
+                await client.PostAsync("https://localhost:44328/api/1.0/client", item);
+
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, false);
-                    return Redirect(model.ReturnUrl);
+                    return Redirect("https://localhost:44328/");
                 }
                 else
                 {

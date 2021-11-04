@@ -11,7 +11,9 @@ using YogaStudio.WebApi.Models;
 
 namespace YogaStudio.WebApi.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersionNeutral]
+    [Produces("application/json")]
+    [Route("api/{version:apiVersion}/[controller]")]
     public class ClientController : BaseController
     {
         private readonly IMapper _mapper;
