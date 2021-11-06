@@ -27,7 +27,14 @@ namespace YogaStudio.Identity
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var connection = AppConfiguration.GetConnectionString("DefaultConnection");
+            var server = AppConfiguration["DbServer"];
+            var port = AppConfiguration["DbPort"];
+            var user = AppConfiguration["DbUser"];
+            var password = AppConfiguration["DbPassword"];
+            var database = AppConfiguration["Database"];
+
+
+            var connection = $"Server={server},{port};Initial Catalog={database};User ID ={user}; Password={password}";
 
             services.AddDbContext<AuthDbContext>(options =>
             {
