@@ -36,7 +36,7 @@ namespace YogaStudio.WebApi.Controllers
         /// <response code="200">Success</response>
         /// <response code="401">If the user is unatorized</response>
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<ClientsListVm>> GetAll()
@@ -58,7 +58,7 @@ namespace YogaStudio.WebApi.Controllers
         /// <response code="200">Success</response>
         /// <response code="401">If the user is unatorized</response>
         [HttpGet("{id}")]
-        //[Authorize]
+        [Authorize]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult<ClientDetailsVm>> Get(Guid id)
