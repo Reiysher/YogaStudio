@@ -1,0 +1,35 @@
+version: '3'
+services:
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Pa55word2021"
+    ports:
+      - "1433:1433"
+  yoga-studio-api:
+    build:
+      context: .
+      dockerfile: Backend/Presentation/YogaStudio.WebApi/Dockerfile
+    environment:
+      DbServer: "ms-sql-server"
+      DbPort: "1433"
+      DbUser: "SA"
+      DbPassword: "Pa55word2021"
+      Database: "YogaStudioDb"
+      IdentityServer: "yoga-studio-identity"
+      IdentityPort: "6000"
+    ports:
+      - "5000:80"
+  yoga-studio-identity:
+    build:
+      context: .
+      dockerfile: Identity/YogaStudio.Identity/Dockerfile
+    environment:
+      DbServer: "ms-sql-server"
+      DbPort: "1433"
+      DbUser: "SA"
+      DbPassword: "Pa55word2021"
+      Database: "YogaStudioIdentity"
+    ports:
+      - "6000:80"

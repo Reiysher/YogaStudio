@@ -15,14 +15,17 @@ namespace YogaStudio.Persistence
         public static IServiceCollection AddPersistence(
             this IServiceCollection services, IConfiguration configuration)
         {
-            var connection = configuration.GetConnectionString("DefaultConnection");
+            var server = configuration["DbServer"];
+            var port = configuration["DbPort"];
+            var user = configuration["DbUser"];
+            var password = configuration["DbPassword"];
+            var database = configuration["Database"];
+
+            var connection = $"Server={server},{port};Initial Catalog={database};User ID ={user}; Password={password}";
             services.AddDbContext<YogaStudioDbContext>(options =>
             {
                 options.UseSqlServer(connection);
             });
-            //services.AddScoped<IYogaStudioDbContext>(provider =>
-                //provider.GetRequiredService<YogaStudioDbContext>());
-            //TODO: DbContext dependency like this?
             services.AddScoped<IYogaStudioDbContext, YogaStudioDbContext>();
             return services;
         }

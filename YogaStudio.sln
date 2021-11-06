@@ -25,9 +25,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{8A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogaStudio.Identity", "Identity\YogaStudio.Identity\YogaStudio.Identity.csproj", "{77A35BB1-C7E2-4640-9F06-2B6A77303132}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{8068FD44-679A-4546-A9C3-F1E64E2D755B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogaStudio.Tests", "Backend\Tests\YogaStudio.Tests\YogaStudio.Tests.csproj", "{5D88F28C-721E-40D4-B792-54078A7B7A50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogaStudio.Tests", "Backend\Tests\YogaStudio.Tests\YogaStudio.Tests.csproj", "{5D88F28C-721E-40D4-B792-54078A7B7A50}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8A2DBF67-9416-4C3C-BA51-0B1D04DED3B2}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
